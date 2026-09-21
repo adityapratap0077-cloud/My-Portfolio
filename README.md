@@ -10,7 +10,7 @@
 **Gorakhpur, India — B.Sc. Honors Biotechnology (5th Semester)**<br>
 Bundelkhand University, Jhansi
 
-[Live Demo](https://yourusername.github.io/portfolio/) • [Resume](assets/Aditya_Pratap_Resume_5th_Sem.pdf) • [GitHub](https://github.com/adityapratap0077-cloud)
+[Live Demo](https://my-portfolio.vercel.app) • [Resume](assets/Aditya_Pratap_Resume_5th_Sem.pdf) • [GitHub](https://github.com/adityapratap0077-cloud)
 
 </div>
 
@@ -114,7 +114,7 @@ All images are referenced with relative paths: `assets/hero.jpg` — works on Gi
 **GitHub Pages:**
 1. Upload `index.html` + `assets/` folder
 2. Settings → Pages → Deploy from branch → main / root → Save
-3. Live at `https://yourusername.github.io/portfolio/`
+3. Live at `https://my-portfolio.vercel.app`
 
 **Vercel:**
 1. Import GitHub repo
