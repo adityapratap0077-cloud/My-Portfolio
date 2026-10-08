@@ -7,92 +7,156 @@
 <meta name="description" content="Aditya Pratap, final-year B.Sc. (Hons) Biotechnology student. Lab skills, projects, and CV.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0B0B0D; --paper:#F4F1EA; --muted:#8E8C88; --line:rgba(244,241,234,.12);
-    --red:#A61A1A; --red-soft:rgba(166,26,26,.14);
+    --ink:#08080A; --ink2:#0E0E12; --paper:#F4F1EA; --muted:#8E8C88; --faint:#55544F;
+    --line:rgba(244,241,234,.10); --red:#A61A1A; --red-hi:#C11F1F;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;
-       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   ::selection{background:var(--red);color:#fff}
-  .wrap{max-width:880px;margin:0 auto;padding:0 28px}
+  /* film grain */
+  .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:60;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 8s steps(10) infinite}
+  @keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  /* ---------- nav ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);
+      background:rgba(8,8,10,.72);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:920px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;
+          justify-content:space-between}
+  .brand{font-family:Fraunces,Georgia,serif;font-size:17px;letter-spacing:.02em;color:var(--paper);
+         text-decoration:none}
+  .brand span{color:var(--red-hi)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--muted);text-decoration:none;transition:.2s}
+  .nav-links a:hover{color:#fff}
+  .nav-links a.on{color:var(--paper);border-bottom:1px solid var(--red-hi);padding-bottom:3px}
   /* ---------- hero ---------- */
-  header{padding:96px 0 64px;position:relative;overflow:hidden}
+  header{padding:170px 0 90px;position:relative;overflow:hidden}
   header::before{content:"";position:absolute;inset:0;pointer-events:none;
     background:
-      radial-gradient(600px 320px at 85% 10%, var(--red-soft), transparent 70%),
-      repeating-linear-gradient(0deg, transparent 0 47px, var(--line) 47px 48px),
-      repeating-linear-gradient(90deg, transparent 0 47px, var(--line) 47px 48px);
-    opacity:.5}
-  .kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);
-          margin-bottom:26px;position:relative}
-  .kicker b{color:var(--red);font-weight:600}
-  h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(44px,7vw,76px);
-     line-height:1.04;letter-spacing:-.01em;position:relative}
-  h1 em{font-style:italic;color:var(--paper)}
-  .lede{margin-top:26px;max-width:600px;color:#C9C6C0;font-size:18px;position:relative}
-  .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;position:relative}
-  .btn{display:inline-block;padding:14px 30px;border-radius:999px;font-size:13px;font-weight:600;
-       letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:.25s}
+      radial-gradient(700px 380px at 82% 8%, rgba(166,26,26,.16), transparent 70%),
+      radial-gradient(500px 500px at 8% 90%, rgba(166,26,26,.07), transparent 70%);}
+  header::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 55px, var(--line) 55px 56px),
+      repeating-linear-gradient(90deg, transparent 0 55px, var(--line) 55px 56px);}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.34em;
+          text-transform:uppercase;color:var(--muted);margin-bottom:30px;position:relative;z-index:1}
+  .kicker b{color:var(--red-hi);font-weight:500}
+  h1{font-family:Fraunces,Georgia,serif;font-weight:300;font-size:clamp(52px,8.5vw,96px);
+     line-height:1.0;letter-spacing:-.015em;position:relative;z-index:1}
+  h1 em{font-style:italic;font-weight:400}
+  h1 .thin{font-weight:300;color:#B9B6B1}
+  .lede{margin-top:30px;max-width:620px;color:#C9C6C0;font-size:18px;position:relative;z-index:1}
+  .lede strong{color:var(--paper);font-weight:600}
+  .cta-row{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+  .btn{display:inline-block;padding:15px 32px;border-radius:999px;font-size:12px;font-weight:600;
+       letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:.25s}
   .btn-solid{background:var(--red);color:#fff;border:1px solid var(--red)}
-  .btn-solid:hover{background:#c11f1f;transform:translateY(-2px)}
+  .btn-solid:hover{background:var(--red-hi);transform:translateY(-2px);box-shadow:0 12px 32px rgba(166,26,26,.35)}
   .btn-ghost{border:1px solid var(--line);color:var(--paper)}
-  .btn-ghost:hover{border-color:var(--red);transform:translateY(-2px)}
+  .btn-ghost:hover{border-color:var(--red-hi);transform:translateY(-2px)}
+  .scroll-hint{position:relative;z-index:1;margin-top:70px;font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.3em;color:var(--faint);text-transform:uppercase}
+  /* ---------- ticker ---------- */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+          overflow:hidden;white-space:nowrap;padding:16px 0;background:var(--ink2)}
+  .ticker-in{display:inline-block;animation:tick 28s linear infinite}
+  .ticker span{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--muted);margin:0 28px}
+  .ticker span i{color:var(--red-hi);font-style:normal;margin-right:28px}
+  @keyframes tick{to{transform:translateX(-50%)}}
   /* ---------- sections ---------- */
-  section{padding:56px 0;border-top:1px solid var(--line)}
-  h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:30px;margin-bottom:8px}
-  .sub{color:var(--muted);font-size:14px;letter-spacing:.06em;margin-bottom:30px}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  section{padding:72px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:10px}
+  .sec-no{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--red-hi);letter-spacing:.2em}
+  h2{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,42px);letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:13px;letter-spacing:.08em;margin:6px 0 36px;
+       font-family:"JetBrains Mono",monospace;text-transform:uppercase}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   @media(max-width:640px){.grid2{grid-template-columns:1fr}}
-  .card{border:1px solid var(--line);border-radius:14px;padding:26px;background:rgba(244,241,234,.02);
-        transition:.25s}
-  .card:hover{border-color:rgba(166,26,26,.5);transform:translateY(-3px)}
-  .card h3{font-family:Fraunces,Georgia,serif;font-size:21px;font-weight:600;margin-bottom:10px}
+  .card{border:1px solid var(--line);border-radius:16px;padding:30px;position:relative;overflow:hidden;
+        background:linear-gradient(160deg, rgba(244,241,234,.035), rgba(244,241,234,.008));
+        transition:.3s}
+  .card::before{content:attr(data-no);position:absolute;top:18px;right:22px;
+    font-family:Fraunces,Georgia,serif;font-size:44px;color:rgba(244,241,234,.07);font-style:italic}
+  .card:hover{border-color:rgba(166,26,26,.55);transform:translateY(-4px);
+    box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  .card h3{font-family:Fraunces,Georgia,serif;font-size:23px;font-weight:600;margin-bottom:12px}
   .card h3 a{color:var(--paper);text-decoration:none}
-  .card h3 a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--red)}
+  .card h3 a:hover{text-decoration:underline;text-decoration-color:var(--red-hi);text-underline-offset:5px}
   .card p{color:#B9B6B1;font-size:15px}
-  .tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
-       border:1px solid var(--line);border-radius:999px;padding:5px 13px;margin:0 8px 10px 0}
-  .edu{margin-bottom:22px}
-  .edu strong{font-weight:600}
-  .edu span{color:var(--muted);font-size:14px}
+  .card .go{margin-top:16px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;
+    color:var(--red-hi);text-transform:uppercase}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9C6C0;
+       border:1px solid var(--line);border-radius:999px;padding:8px 16px;margin:0 10px 12px 0;
+       transition:.2s;font-family:"JetBrains Mono",monospace}
+  .tag:hover{border-color:var(--red-hi);color:#fff}
+  .edu{padding:22px 0;border-bottom:1px dashed var(--line)}
+  .edu:first-of-type{border-top:1px dashed var(--line)}
+  .edu strong{font-weight:600;font-size:17px}
+  .edu span{color:var(--muted);font-size:14px;font-family:"JetBrains Mono",monospace}
   ul.clean{list-style:none}
-  ul.clean li{padding:10px 0;border-bottom:1px dashed var(--line);color:#C9C6C0;font-size:15px}
+  ul.clean li{padding:14px 0;border-bottom:1px dashed var(--line);color:#C9C6C0;font-size:15px}
   ul.clean li:last-child{border-bottom:none}
-  ul.clean li::before{content:"— ";color:var(--red)}
+  ul.clean li::before{content:"— ";color:var(--red-hi)}
   /* ---------- footer ---------- */
-  footer{padding:64px 0 80px;border-top:1px solid var(--line);text-align:center}
-  footer p{color:var(--muted);font-size:14px;margin-bottom:22px}
-  footer a.mail{color:var(--paper);font-family:Fraunces,Georgia,serif;font-size:22px;text-decoration:none;
-    border-bottom:1px solid var(--red)}
-  footer a.mail:hover{color:#fff}
-  .tiny{margin-top:34px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#5c5b58}
+  footer{padding:90px 0;border-top:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
+  footer::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(600px 300px at 50% 100%, rgba(166,26,26,.12), transparent 70%)}
+  footer h2{margin-bottom:14px}
+  footer p{color:var(--muted);font-size:15px;margin-bottom:30px;position:relative}
+  a.mail{color:var(--paper);font-family:Fraunces,Georgia,serif;font-size:clamp(20px,3.4vw,28px);
+    text-decoration:none;border-bottom:1px solid var(--red-hi);position:relative}
+  a.mail:hover{color:#fff}
+  .dual{margin-top:44px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+  .tiny{margin-top:40px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);
+        font-family:"JetBrains Mono",monospace}
 </style>
 </head>
 <body>
+<div class="grain"></div>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="./">Aditya Pratap <span>·</span></a>
+    <div class="nav-links">
+      <a href="./science.html" class="on">Science</a>
+      <a href="./">Design ↗</a>
+    </div>
+  </div>
+</nav>
 
 <header>
   <div class="wrap">
-    <div class="kicker">B.Sc. (Hons) <b>Biotechnology</b> — Final Year</div>
-    <h1>Aditya Pratap<br><em>works in the life sciences.</em></h1>
-    <p class="lede">Final-year biotechnology undergraduate at Bundelkhand University with hands-on
-    lab training across molecular biology, microbiology, and fermentation — and an AI-native
-    builder who ships working tools, not just coursework. Currently preparing for
-    IIT&nbsp;JAM, ICAR&nbsp;AIEEA&nbsp;PG, and AIIMS M.&nbsp;Biotechnology 2027.</p>
+    <div class="kicker">B.Sc. (Hons) <b>Biotechnology</b> — Final Year · Bundelkhand University</div>
+    <h1>Aditya Pratap<br><span class="thin">works in the</span> <em>life sciences.</em></h1>
+    <p class="lede">Final-year biotechnology undergraduate with <strong>hands-on lab training</strong>
+    across molecular biology, microbiology, and fermentation — and an <strong>AI-native builder</strong>
+    who ships working tools, not just coursework. Preparing for IIT&nbsp;JAM, ICAR&nbsp;AIEEA&nbsp;PG,
+    and AIIMS M.&nbsp;Biotechnology 2027.</p>
     <div class="cta-row">
       <a class="btn btn-solid" href="./assets/Aditya_Pratap_Resume_5th_Sem.pdf" download>Download CV ↓</a>
       <a class="btn btn-ghost" href="mailto:adityapratap0077@gmail.com">Get in touch</a>
     </div>
+    <div class="scroll-hint">Scroll — lab · study · work</div>
   </div>
 </header>
 
+<div class="ticker"><div class="ticker-in" id="tick"></div></div>
+
 <div class="wrap">
 <section>
-  <h2>Laboratory skills</h2>
-  <div class="sub">Bench training, Bundelkhand University</div>
+  <div class="sec-head"><span class="sec-no">01</span><h2>Laboratory skills</h2></div>
+  <div class="sub">Bench training</div>
   <div>
     <span class="tag">Molecular Biology</span><span class="tag">Microbiology</span>
     <span class="tag">Fermentation</span><span class="tag">Food Microbiology</span>
@@ -102,7 +166,7 @@
 </section>
 
 <section>
-  <h2>Education</h2>
+  <div class="sec-head"><span class="sec-no">02</span><h2>Education</h2></div>
   <div class="sub">Academic record</div>
   <div class="edu"><strong>B.Sc. (Hons) Biotechnology</strong>, Bundelkhand University, Jhansi<br>
     <span>2024 – 2027 (expected) · CGPA 6.5/10</span></div>
@@ -111,26 +175,28 @@
 </section>
 
 <section>
-  <h2>Selected work</h2>
+  <div class="sec-head"><span class="sec-no">03</span><h2>Selected work</h2></div>
   <div class="sub">Built with AI-assisted development tools</div>
   <div class="grid2">
-    <div class="card">
+    <div class="card" data-no="01">
       <h3>BioVision Lab</h3>
       <p>Interactive biology study platform — 3D visuals and quizzes across core biotechnology
       and life-science topics, built for exam preparation. An exercise in explaining complex
       biology clearly.</p>
+      <div class="go">Study tool · 2026</div>
     </div>
-    <div class="card">
+    <div class="card" data-no="02">
       <h3><a href="https://banaobot.onrender.com">BanaoBot ↗</a></h3>
       <p>Self-serve WhatsApp chatbot builder for small businesses. Auto-builds product catalogues
       from text, menu photos, or PDFs, with per-message Hindi / English / Hinglish detection.</p>
+      <div class="go">Live product · 2026</div>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>Also</h2>
-  <div class="sub">Beyond the bench</div>
+  <div class="sec-head"><span class="sec-no">04</span><h2>Beyond the bench</h2></div>
+  <div class="sub">Also</div>
   <ul class="clean">
     <li>Fluent with modern AI tools for research, scientific writing, and data organization</li>
     <li>Science communicator — produces biology education content and interactive study tools</li>
@@ -141,11 +207,25 @@
 
 <footer>
   <div class="wrap">
-    <p>Open to research internships in biotechnology, food science, and the life sciences.</p>
+    <h2>Open to research internships.</h2>
+    <p>Biotechnology · food science · the life sciences.</p>
     <a class="mail" href="mailto:adityapratap0077@gmail.com">adityapratap0077@gmail.com</a>
-    <div class="tiny">Aditya Pratap — Jhansi, India</div>
+    <div class="dual">
+      <a class="btn btn-ghost" href="./science.html">Science profile</a>
+      <a class="btn btn-ghost" href="./">Design portfolio ↗</a>
+    </div>
+    <div class="tiny">Aditya Pratap — Jhansi, India · 2026</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var skills=["Molecular Biology","Microbiology","Fermentation","Food Microbiology",
+    "Quality Control","Aseptic Technique","AI-Native Builder","Science Communicator"];
+  var html="";
+  for(var r=0;r<2;r++){skills.forEach(function(s){html+='<span><i>✦</i>'+s+'</span>';});}
+  document.getElementById('tick').innerHTML=html;
+})();
+</script>
 </body>
 </html>
