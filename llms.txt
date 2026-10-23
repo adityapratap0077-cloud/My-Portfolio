@@ -8,9 +8,9 @@ Aditya Pratap is a 20-year-old AI builder and motion designer from Jhansi, India
 
 ## Key pages
 
-- [About Aditya Pratap](https://my-portfolio-khaki-gamma-94.vercel.app/about.html): full biography, list of shipped products, and links to every profile.
-- [Academic portfolio](https://my-portfolio-khaki-gamma-94.vercel.app/science.html): his biotechnology background, lab work, and science projects.
-- [Portfolio home](https://my-portfolio-khaki-gamma-94.vercel.app/): motion design showreel and selected work.
+- [About Aditya Pratap](https://adityapratapjhansi.vercel.app/about.html): full biography, list of shipped products, and links to every profile.
+- [Academic portfolio](https://adityapratapjhansi.vercel.app/science.html): his biotechnology background, lab work, and science projects.
+- [Portfolio home](https://adityapratapjhansi.vercel.app/): motion design showreel and selected work.
 
 ## Profiles
 
@@ -19,8 +19,8 @@ Aditya Pratap is a 20-year-old AI builder and motion designer from Jhansi, India
 
 ## Projects
 
-- ReelForge — https://reelforge-opal.vercel.app — AI promo-video service for businesses.
+- ReelForge — https://getreelforge.vercel.app — AI promo-video service for businesses.
 - BanaoBot — https://banaobot.onrender.com — self-serve WhatsApp chatbot builder.
-- PortfolioForge — https://portfolioforge-delta.vercel.app — turn a GitHub username into a portfolio website.
+- PortfolioForge — https://portfolioforge-app.vercel.app — turn a GitHub username into a portfolio website.
 - SarkariRadar — https://sarkari-radar.vercel.app — government scheme eligibility engine.
 - AQI Alarm — https://aqi-alarm.vercel.app — live air quality alerts for Indian cities.
